@@ -5,6 +5,7 @@ import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLig
 
 import { buildWalls } from "./meshes/walls";
 import { buildCeiling } from "./meshes/ceiling";
+import { createColorMaterial } from "./materials/surfaceColor";
 
 
         const canvas = document.createElement('canvas');
@@ -32,12 +33,13 @@ import { buildCeiling } from "./meshes/ceiling";
             // );
             camera.attachControl(canvas, true);
 
-            const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(1,1,0), scene);
+            const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(0,1,0.5), scene);
             
-            buildCeiling(scene);
+            //buildCeiling(scene);
             buildWalls(scene);
             
             const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 280, height: 320});
+            ground.material = createColorMaterial(scene).groundColor;
 
             return scene;
         }     
