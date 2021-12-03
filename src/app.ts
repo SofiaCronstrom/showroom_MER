@@ -3,8 +3,8 @@ import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
 import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper } from "@babylonjs/core";
 
-import { buildWalls } from "./walls";
-
+import { buildWalls } from "./meshes/walls";
+import { buildCeiling } from "./meshes/ceiling";
 
 
         const canvas = document.createElement('canvas');
@@ -33,7 +33,8 @@ import { buildWalls } from "./walls";
             camera.attachControl(canvas, true);
 
             const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(1,1,0), scene);
-
+            
+            buildCeiling(scene);
             buildWalls(scene);
             
             const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 280, height: 320});
