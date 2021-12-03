@@ -4,8 +4,9 @@
   "description": "Product for MER arkitekter Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "build": "webpack",
+    "start": "webpack-dev-server --port 8080"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SofiaCronstrom/showroom_MER.git"
