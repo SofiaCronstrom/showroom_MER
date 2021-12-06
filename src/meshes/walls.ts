@@ -1,5 +1,6 @@
 import { Scene, Vector3, MeshBuilder, Mesh, } from "@babylonjs/core";
 import { createColorMaterial } from "../materials/surfaceColor";
+import {buildSectionTwo} from "./sectionTwo"; 
 
 export const buildWalls = (scene: Scene) => {
     
@@ -18,5 +19,7 @@ export const buildWalls = (scene: Scene) => {
     const instanceBig = wallBig.createInstance('instance2');
     instanceBig.rotation = new Vector3(0, Math.PI/2, 0);
     instanceBig.position = new Vector3(280, 100, 0);
+
+    buildSectionTwo(scene);
 
 }
