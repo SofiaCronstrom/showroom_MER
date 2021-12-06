@@ -8,8 +8,8 @@ export const buildWalls = (scene: Scene) => {
     const wallSmall: Mesh =  MeshBuilder.CreateBox('wall1',{height: 200, width: 560, depth: 0.25}, scene);
     wallSmall.position = new Vector3(0, 100, -320)
     wallSmall.material = createColorMaterial(scene).wallColor;
-    const instanceSmall = wallSmall.createInstance('instance1');
-    instanceSmall.position = new Vector3(0, 100, 320)
+    // const instanceSmall = wallSmall.createInstance('instance1');
+    // instanceSmall.position = new Vector3(0, 100, 320)
     
     //Long wall
     const wallBig: Mesh = MeshBuilder.CreateBox('wall2', {height: 200, width: 640, depth: 0.25}, scene);
