@@ -40,7 +40,7 @@ import { createColorMaterial } from "./materials/surfaceColor";
             //buildCeiling(scene);
             buildWalls(scene);
             
-            const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 700, height: 1000});
+            const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 1000, height: 1300});
             ground.material = createColorMaterial(scene).groundColor;
 
             return scene;
