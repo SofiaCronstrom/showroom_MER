@@ -3,13 +3,13 @@ import { createColorMaterial } from "../materials/surfaceColor";
 
 export const buildStairs = (scene: Scene) => {
 
-    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 100, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
-    stairPlane.position =  new Vector3 (-200, 139.5, -400);
+    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
+    stairPlane.position =  new Vector3 (-300, 139.5, -550);
     stairPlane.material = createColorMaterial(scene).stairColor;
 
-    const stairInstance: Mesh = MeshBuilder.CreatePlane('stair1', {width: 100, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
+    const stairInstance: Mesh = MeshBuilder.CreatePlane('stair1', {width: 150, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     stairInstance.rotation = new Vector3(Math.PI/2, 0, 0);
-    stairInstance.position = new Vector3 (-200, 132, -392);
+    stairInstance.position = new Vector3 (-300, 132, -542);
 
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
     
