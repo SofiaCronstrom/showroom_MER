@@ -28,7 +28,7 @@ import { createColorMaterial } from "./materials/surfaceColor";
            
             // const camera = new FreeCamera(
             //     "camera1",
-            //     new Vector3(1, 1.8, 0),
+            //     new Vector3(1, 4, 0),
             //     scene
             // );
             camera.attachControl(canvas, true);
@@ -40,7 +40,7 @@ import { createColorMaterial } from "./materials/surfaceColor";
             //buildCeiling(scene);
             buildWalls(scene);
             
-            const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 560, height: 640});
+            const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 700, height: 1000});
             ground.material = createColorMaterial(scene).groundColor;
 
             return scene;
