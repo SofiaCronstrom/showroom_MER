@@ -1,13 +1,13 @@
-import { Scene, Vector3, MeshBuilder, Mesh, } from "@babylonjs/core";
+import { Scene, Vector3, MeshBuilder, Mesh, VertexData} from "@babylonjs/core";
 import { createColorMaterial } from "../materials/surfaceColor";
 import {buildSectionTwo} from "./sectionTwo"; 
-
+import { buildCeiling } from "./ceiling";
 export const buildWalls = (scene: Scene) => {
     
     //Short wall
-    // const wallSmall: Mesh =  MeshBuilder.CreateBox('wall1',{height: 400, width: 700, depth: 0.25}, scene);
-    // wallSmall.position = new Vector3(0, 200, -500)
-    // wallSmall.material = createColorMaterial(scene).wallColor;
+    const wallSmall: Mesh =  MeshBuilder.CreateBox('wall1',{height: 400, width: 1000, depth: 0.25}, scene);
+    wallSmall.position = new Vector3(0, 200, -650)
+    wallSmall.material = createColorMaterial(scene).wallColor;
     // const instanceSmall = wallSmall.createInstance('instance1');
     // instanceSmall.position = new Vector3(0, 100, 320)
     
@@ -20,6 +20,14 @@ export const buildWalls = (scene: Scene) => {
     instanceBig.rotation = new Vector3(0, Math.PI/2, 0);
     instanceBig.position = new Vector3(500, 200, 0);
 
-    buildSectionTwo(scene);
+    const triangleWall: Mesh = MeshBuilder.CreateDisc('tringleWall', {tessellation: 3, radius: 995, sideOrientation: Mesh.DOUBLESIDE}) 
+    triangleWall.rotation = new Vector3(0, 0,Math.PI/2);
+    triangleWall.scaling = new Vector3(0.15,0.59,0.02);
+    triangleWall.position = new Vector3(0, 474, -650)   
+    
 
+    
+    buildCeiling(scene);
+    buildSectionTwo(scene);
+    
 }

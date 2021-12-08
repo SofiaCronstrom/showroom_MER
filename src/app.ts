@@ -24,7 +24,7 @@ import { createColorMaterial } from "./materials/surfaceColor";
              scene.clearColor = new Color4(0,0,0);
         
         
-            const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 3, 90, Vector3.Zero(), scene);
+            const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
            
             // const camera = new FreeCamera(
             //     "camera1",
@@ -34,8 +34,8 @@ import { createColorMaterial } from "./materials/surfaceColor";
             camera.attachControl(canvas, true);
 
             const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(0,1,0.5), scene);
-            light1.diffuse = new Color3(0.980, 0.956, 0.898);
-            light1.specular = new Color3(0.980, 0.956, 0.898);
+            light1.diffuse = new Color3(1, 1, 1);
+            light1.specular = new Color3(1, 1, 1);
             light1.groundColor = new Color3(0.270, 0.270, 0.270)
             //buildCeiling(scene);
             buildWalls(scene);

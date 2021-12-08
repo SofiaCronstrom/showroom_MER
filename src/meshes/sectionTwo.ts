@@ -11,16 +11,16 @@ export const buildSectionTwo = (scene: Scene) => {
     secondPlane.material = createColorMaterial(scene).secondPlaneColor;
 
     const rightPlane = secondPlane.createInstance('rightPlane');
-    rightPlane.position = new Vector3(-450, 147, -251);
-    rightPlane.scaling = new Vector3(0.6,1,1); 
+    rightPlane.position = new Vector3(-450, 147, -404);
+    rightPlane.scaling = new Vector3(0.3,1,1); 
     rightPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
 
     const leftPlane = secondPlane.createInstance('leftPlane');
-    leftPlane.position = new Vector3(450, 147, -251);
-    leftPlane.scaling = new Vector3(0.6,1,3)
+    leftPlane.position = new Vector3(450, 147, -153);
+    leftPlane.scaling = new Vector3(0.8,1,3)
     leftPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
     
-    const quadrantPlane: Mesh = MeshBuilder.CreatePlane('quadrantPlane', {width: 300, height: 400, sideOrientation: Mesh.DOUBLESIDE}, scene);
+    const quadrantPlane: Mesh = MeshBuilder.CreatePlane('quadrantPlane', {width: 400, height: 400, sideOrientation: Mesh.DOUBLESIDE}, scene);
     quadrantPlane.position = new Vector3(200, 147, -450);
     quadrantPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
     quadrantPlane.material = createColorMaterial(scene).secondPlaneColor;

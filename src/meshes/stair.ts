@@ -43,14 +43,3 @@ export const buildStairs = (scene: Scene) => {
 
 }
 
-// const stairArray = () => {
-
-//  let stairs = [];
-//  stairs.push([-149, 55, -195]);
-//  stairs.push([-119, 25, -165]);
-//  stairs.push([-89, -5, -135]);
-
-//  for (const value of stairs){
-//      console.log(value);
-//  }
-// }
