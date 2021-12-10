@@ -34,5 +34,14 @@ export const buildCeiling = (scene: Scene) => {
         ceilingPiece[i].position.z = ceilingPlace[i][3];
     }
 
+    //thin ceiling piece
+
+    const thinRight: Mesh = MeshBuilder.CreatePlane('thinCeiling', {width: 1300, height: 50, sideOrientation: Mesh.DOUBLESIDE});
+    thinRight.position = new Vector3(-24.95, 605.16, 0);
+    thinRight.rotation = new Vector3(Math.PI/2.7, Math.PI/2, 0);
+    
+    const thinLeft = thinRight.createInstance('thinLeft');
+    thinLeft.rotation = new Vector3(Math.PI/2.7, -Math.PI/2, 0);
+    thinLeft.position = new Vector3(18.23, 606.46, 0)
     
 }
