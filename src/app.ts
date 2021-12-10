@@ -21,8 +21,8 @@ import { createColorMaterial } from "./materials/surfaceColor";
         const createScene = () : Scene => {
 
              const scene = new Scene(engine);
-             scene.clearColor = new Color4(0.980, 0.976, 0.901);
-        
+             scene.clearColor = new Color4(0,0,0);
+             scene.ambientColor = new Color3(0.980, 0.976, 0.901);
         
             const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
            
@@ -33,10 +33,11 @@ import { createColorMaterial } from "./materials/surfaceColor";
             // );
             camera.attachControl(canvas, true);
 
-            const light1: DirectionalLight = new DirectionalLight('light1', new Vector3(0.13,-0.4,0.91), scene);
-            light1.diffuse = new Color3(1, 1, 1);
-            light1.specular = new Color3(0.998, 0.998, 1);
-            
+            const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(0,1,0.5), scene);
+            // light1.diffuse = new Color3(0.988,1,0.859);
+            // //light1.specular = new Color3(0.96, 0.96, 0.96);
+            // light1.groundColor = new Color3(0.949,0.949,0.925);
+            //light1.intensity = 0.8;
             
             // const light2: DirectionalLight = new DirectionalLight('light2', new Vector3(0.07, 0.93,0.36), scene);
             // light1.diffuse = new Color3(1, 1, 1);
