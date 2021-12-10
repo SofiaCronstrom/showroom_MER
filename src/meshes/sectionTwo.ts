@@ -4,7 +4,9 @@ import { buildStairs } from "./stair";
 
 
 export const buildSectionTwo = (scene: Scene) => {
+    
 
+    //Meshes for the second plane
     const secondPlane: Mesh = MeshBuilder.CreatePlane('secondPlane', {width: 1000, height: 100, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     secondPlane.position = new Vector3(0, 147, -600)
     secondPlane.rotation = new Vector3(Math.PI/2, 0, 0);
@@ -24,5 +26,7 @@ export const buildSectionTwo = (scene: Scene) => {
     quadrantPlane.position = new Vector3(200, 147, -450);
     quadrantPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
     quadrantPlane.material = createColorMaterial(scene).secondPlaneColor;
+
+    
     buildStairs(scene);
 }

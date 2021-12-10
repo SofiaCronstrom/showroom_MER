@@ -4,13 +4,13 @@ import { createColorMaterial } from "../materials/surfaceColor";
 
 export const buildCeiling = (scene: Scene) => {
     
-    //right ceiling piece
+    //Ceiling meshes
     const plane: Mesh = MeshBuilder.CreatePlane("ceilingRight", {height:600, width: 260, sideOrientation: Mesh.DOUBLESIDE}, scene);
     plane.position = new Vector3(-274.95, 497.32, 0);
     plane.rotation = new Vector3(Math.PI/2.7, Math.PI/2, 0)
     plane.material = createColorMaterial(scene).wallColor;
 
-    //Left ceiling piece
+    
     const leftPlane: Mesh = MeshBuilder.CreatePlane("ceilingLeft", {height:600, width: 260, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     leftPlane.position = new Vector3(274.95, 497.32, 0);
     leftPlane.rotation = new Vector3(Math.PI/2.7, -Math.PI/2, 0)

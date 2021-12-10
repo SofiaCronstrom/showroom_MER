@@ -3,6 +3,8 @@ import { createColorMaterial } from "../materials/surfaceColor";
 
 export const buildStairs = (scene: Scene) => {
 
+
+    //stair meshes
     const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     stairPlane.position =  new Vector3 (-300, 139.5, -550);
     stairPlane.material = createColorMaterial(scene).stairColor;
@@ -14,7 +16,7 @@ export const buildStairs = (scene: Scene) => {
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
     
 
-
+    //Position stair meshes
     let stairsArray = [];
     stairsArray.push([1, 0, -15, 15]);
     stairsArray.push([1, 0, -30, 30]);
@@ -27,12 +29,9 @@ export const buildStairs = (scene: Scene) => {
     stairsArray.push([1, 0, -135, 135]);
     let stepsArray = []
 
-    for (let i = 0; i<stairsArray.length; i++){
-        if (stairsArray[i][0] === 1){
-        stepsArray[i] = stairs.createInstance('instanceStairs' + i);
-        } else{
-            return;
-        }
+    for (let i in stairsArray){
+        (stairsArray[i][0] === 1) ? stepsArray[i] = stairs.createInstance('instanceStairs' + i) : false;
+        
         stepsArray[i].position.x = stairsArray[i][1]
         stepsArray[i].position.y = stairsArray[i][2]
         stepsArray[i].position.z = stairsArray[i][3]
