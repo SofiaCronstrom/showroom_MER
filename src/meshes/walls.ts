@@ -1,8 +1,13 @@
-import { Scene, Vector3, MeshBuilder, Mesh, VertexData} from "@babylonjs/core";
+import { Scene, Vector3, MeshBuilder, Mesh, DirectionalLight, ShadowGenerator} from "@babylonjs/core";
 import { createColorMaterial } from "../materials/surfaceColor";
 import {buildSectionTwo} from "./sectionTwo"; 
 import { buildCeiling } from "./ceiling";
+import { buildStairs } from "./stair";
+
 export const buildWalls = (scene: Scene) => {
+
+    buildCeiling(scene);
+    buildSectionTwo(scene);
     
     //Short wall
     const wallSmall: Mesh =  MeshBuilder.CreateBox('wall1',{height: 400, width: 1000, depth: 0.25}, scene);
@@ -16,7 +21,8 @@ export const buildWalls = (scene: Scene) => {
     wallBig.position = new Vector3(-500, 200, 0);
     wallBig.rotation = new Vector3(0, Math.PI/2, 0)
     wallBig.material = createColorMaterial(scene).wallColor;
-    const instanceBig = wallBig.createInstance('instance2');
+
+    const instanceBig = wallBig.clone('instance2');
     instanceBig.rotation = new Vector3(0, Math.PI/2, 0);
     instanceBig.position = new Vector3(500, 200, 0);
 
@@ -24,10 +30,21 @@ export const buildWalls = (scene: Scene) => {
     triangleWall.rotation = new Vector3(0, 0,Math.PI/2);
     triangleWall.scaling = new Vector3(0.15,0.59,0.02);
     triangleWall.position = new Vector3(0, 474, -650)   
+
+    const walls = Mesh.MergeMeshes([wallBig, wallSmall, triangleWall, instanceBig])
     
 
+    const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 1000, height: 1300});
+    ground.material = createColorMaterial(scene).wallColor;
+
+    const light2: DirectionalLight = new DirectionalLight('light2', new Vector3(-0.03,-0.66,-0.75), scene);
+    const shadow: ShadowGenerator = new ShadowGenerator(1024, light2) 
+    shadow.getShadowMap().renderList.push(buildStairs(scene).stairs, buildSectionTwo(scene).secondSection);
+            walls.receiveShadows = true;
+            ground.receiveShadows = true;
+            
+
     
-    buildCeiling(scene);
-    buildSectionTwo(scene);
+    
     
 }

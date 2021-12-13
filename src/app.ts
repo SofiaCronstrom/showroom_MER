@@ -1,12 +1,12 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight } from "@babylonjs/core";
+import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator } from "@babylonjs/core";
 
 import { buildWalls } from "./meshes/walls";
 import { buildCeiling } from "./meshes/ceiling";
 import { createColorMaterial } from "./materials/surfaceColor";
-
+import { buildStairs } from "./meshes/stair";
 
         const canvas = document.createElement('canvas');
         canvas.style.width = "99%";
@@ -34,23 +34,10 @@ import { createColorMaterial } from "./materials/surfaceColor";
             camera.attachControl(canvas, true);
 
             const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(0,1,0.5), scene);
-            // light1.diffuse = new Color3(0.988,1,0.859);
-            // //light1.specular = new Color3(0.96, 0.96, 0.96);
-            // light1.groundColor = new Color3(0.949,0.949,0.925);
-            //light1.intensity = 0.8;
-            
-            // const light2: DirectionalLight = new DirectionalLight('light2', new Vector3(0.07, 0.93,0.36), scene);
-            // light1.diffuse = new Color3(1, 1, 1);
-            // light1.specular = new Color3(0.998, 0.998, 1);
-            
-
-            
-            
-            const ground: Mesh = MeshBuilder.CreateGround('ground', {width: 1000, height: 1300});
-            ground.material = createColorMaterial(scene).wallColor;
-            
+           
             buildWalls(scene);
-
+            
+            
             return scene;
         }     
           

@@ -12,12 +12,12 @@ export const buildSectionTwo = (scene: Scene) => {
     secondPlane.rotation = new Vector3(Math.PI/2, 0, 0);
     secondPlane.material = createColorMaterial(scene).secondPlaneColor;
 
-    const rightPlane = secondPlane.createInstance('rightPlane');
+    const rightPlane = secondPlane.clone('rightPlane');
     rightPlane.position = new Vector3(-450, 147, -404);
     rightPlane.scaling = new Vector3(0.3,1,1); 
     rightPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
 
-    const leftPlane = secondPlane.createInstance('leftPlane');
+    const leftPlane = secondPlane.clone('leftPlane');
     leftPlane.position = new Vector3(450, 147, -153);
     leftPlane.scaling = new Vector3(0.8,1,3)
     leftPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
@@ -28,5 +28,7 @@ export const buildSectionTwo = (scene: Scene) => {
     quadrantPlane.material = createColorMaterial(scene).secondPlaneColor;
 
     
-    buildStairs(scene);
+    const secondSection = Mesh.MergeMeshes([ secondPlane, quadrantPlane, rightPlane, leftPlane])
+
+    return {secondSection};
 }

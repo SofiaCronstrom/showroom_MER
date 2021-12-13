@@ -39,6 +39,6 @@ export const buildStairs = (scene: Scene) => {
         
     }
     
-
+    return {stairs};
 }
 
