@@ -1,7 +1,7 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator, SceneLoader } from "@babylonjs/core";
+import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator, SceneLoader, StandardMaterial } from "@babylonjs/core";
 import {buildSectionTwo} from "./meshes/sectionTwo"; 
 import { buildStairs } from "./meshes/stair";
 import { buildRoof } from "./meshes/roof";
@@ -35,11 +35,13 @@ import { createColorMaterial } from "./materials/surfaceColor";
             camera.attachControl(canvas, true);
 
             const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(-0.84,-0.538,-0.072), scene);
-           
+
+            
             SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
              const room = getMeshes[0];
              room.scaling = new Vector3(1.23,1.28,1.08)
-            
+             const roomSurface = getMeshes[0].getChildMeshes()[0];
+             roomSurface.material = createColorMaterial(scene).roomColor; 
             });
 
 
