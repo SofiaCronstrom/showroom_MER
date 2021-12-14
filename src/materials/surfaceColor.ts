@@ -3,7 +3,7 @@ import { StandardMaterial, Scene, Color3 } from "@babylonjs/core";
 export const createColorMaterial = (scene: Scene) => {
 
     const wallColor: StandardMaterial = new StandardMaterial('wallColor', scene);
-    wallColor.diffuseColor = new Color3(1, 1, 1);
+    wallColor.diffuseColor = new Color3(0, 1, 1);
 
     const groundColor: StandardMaterial = new StandardMaterial('groundColor', scene);
     groundColor.diffuseColor = new Color3(0.95, 0.95, 0.95);

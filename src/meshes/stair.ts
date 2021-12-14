@@ -14,23 +14,23 @@ export const buildStairs = (scene: Scene) => {
     stairInstance.position = new Vector3 (-300, 132, -542);
 
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
-    
+    stairs.position = new Vector3(0,0,-67.6)
 
     //Position stair meshes
     let stairsArray = [];
-    stairsArray.push([1, 0, -15, 15]);
-    stairsArray.push([1, 0, -30, 30]);
-    stairsArray.push([1, 0, -45, 45]);
-    stairsArray.push([1, 0, -60, 60]);
-    stairsArray.push([1, 0, -75, 75]);
-    stairsArray.push([1, 0, -90, 90]);
-    stairsArray.push([1, 0, -105, 105]);
-    stairsArray.push([1, 0, -120, 120]);
-    stairsArray.push([1, 0, -135, 135]);
+    stairsArray.push([1, 0, -15, -52]);
+    stairsArray.push([1, 0, -30, -37]);
+    stairsArray.push([1, 0, -45, -22]);
+    stairsArray.push([1, 0, -60, -7]);
+    stairsArray.push([1, 0, -75, 8]);
+    stairsArray.push([1, 0, -90, 23]);
+    stairsArray.push([1, 0, -105, 38]);
+    stairsArray.push([1, 0, -120, 53]);
+    stairsArray.push([1, 0, -135, 68]);
     let stepsArray = []
 
     for (let i in stairsArray){
-        (stairsArray[i][0] === 1) ? stepsArray[i] = stairs.createInstance('instanceStairs' + i) : false;
+        (stairsArray[i][0] === 1) ? stepsArray[i] = stairs.clone('instanceStairs' + i) : false;
         
         stepsArray[i].position.x = stairsArray[i][1]
         stepsArray[i].position.y = stairsArray[i][2]
