@@ -10,7 +10,7 @@ export const buildSectionTwo = (scene: Scene) => {
     const secondPlane: Mesh = MeshBuilder.CreatePlane('secondPlane', {width: 1300, height: 200, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     secondPlane.position = new Vector3(0, 147, -600)
     secondPlane.rotation = new Vector3(Math.PI/2, 0, 0);
-    //secondPlane.material = createColorMaterial(scene).roomColor;
+    secondPlane.material = createColorMaterial(scene).roomColor;
 
     const rightPlane = secondPlane.clone('rightPlane');
     rightPlane.position = new Vector3(-550, 147, -404);
@@ -25,7 +25,7 @@ export const buildSectionTwo = (scene: Scene) => {
     const quadrantPlane: Mesh = MeshBuilder.CreatePlane('quadrantPlane', {width: 500, height: 500, sideOrientation: Mesh.DOUBLESIDE}, scene);
     quadrantPlane.position = new Vector3(200, 147, -450);
     quadrantPlane.rotation = new Vector3(Math.PI/2, Math.PI/2, 0);
-    //quadrantPlane.material = createColorMaterial(scene).roomColor;
+    quadrantPlane.material = createColorMaterial(scene).roomColor;
 
     
     const secondSection = Mesh.MergeMeshes([ secondPlane, quadrantPlane, rightPlane, leftPlane])

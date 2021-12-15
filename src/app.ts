@@ -34,16 +34,11 @@ import { createColorMaterial } from "./materials/surfaceColor";
             // );
             camera.attachControl(canvas, true);
 
-            // const light1: HemisphericLight = new HemisphericLight('light1', new Vector3(-1, -2, 0), scene);
-            // light1.diffuse = new Color3(0.996,0.996,1);
-            // light1.groundColor = new Color3(0,0,0)
-            // light1.intensity = 0.8
-
             const light1: DirectionalLight = new DirectionalLight('light2', new Vector3(1,2,1), scene)
-            light1.direction = new Vector3(-0.27, -0.95, 0.18);
+            light1.direction = new Vector3(-0.65, 0.72, 0.23);
             
             const light2: DirectionalLight = new DirectionalLight("light3", new Vector3(-1,-2,-1), scene)
-            light2.direction = new Vector3(0.86, 0.12, -0.49);
+            light2.direction = new Vector3(0.76, -0.49, -0.43);
 
             SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
              const room = getMeshes[0];
