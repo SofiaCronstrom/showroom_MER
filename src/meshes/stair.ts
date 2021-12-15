@@ -14,19 +14,19 @@ export const buildStairs = (scene: Scene) => {
     stairInstance.position = new Vector3 (-300, 132, -542);
 
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
-    stairs.position = new Vector3(0,0,-67.6)
+    stairs.position = new Vector3(0,60,-67.6)
 
     //Position stair meshes
     let stairsArray = [];
-    stairsArray.push([1, 0, -15, -52]);
-    stairsArray.push([1, 0, -30, -37]);
-    stairsArray.push([1, 0, -45, -22]);
-    stairsArray.push([1, 0, -60, -7]);
-    stairsArray.push([1, 0, -75, 8]);
-    stairsArray.push([1, 0, -90, 23]);
-    stairsArray.push([1, 0, -105, 38]);
-    stairsArray.push([1, 0, -120, 53]);
-    stairsArray.push([1, 0, -135, 68]);
+    stairsArray.push([1, 0, 45, -52]);
+    stairsArray.push([1, 0, 30, -37]);
+    stairsArray.push([1, 0, 15, -22]);
+    stairsArray.push([1, 0, 0, -7]);
+    stairsArray.push([1, 0, -15, 8]);
+    stairsArray.push([1, 0, -30, 23]);
+    stairsArray.push([1, 0, -45, 38]);
+    stairsArray.push([1, 0, -60, 53]);
+    stairsArray.push([1, 0, -75, 68]);
     let stepsArray = []
 
     for (let i in stairsArray){

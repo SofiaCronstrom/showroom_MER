@@ -1,7 +1,7 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator, SceneLoader, StandardMaterial, CascadedShadowGenerator } from "@babylonjs/core";
+import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator, SceneLoader, StandardMaterial, CascadedShadowGenerator, SpotLight} from "@babylonjs/core";
 import {buildSectionTwo} from "./meshes/sectionTwo"; 
 import { buildStairs } from "./meshes/stair";
 import { buildRoof } from "./meshes/roof";
@@ -34,22 +34,28 @@ import { createColorMaterial } from "./materials/surfaceColor";
             // );
             camera.attachControl(canvas, true);
 
-            const light1: DirectionalLight = new DirectionalLight('light2', new Vector3(1,2,1), scene)
-            light1.direction = new Vector3(-0.65, 0.72, 0.23);
+            const light1 = new SpotLight("spot02", new Vector3(476.92, 2571.96, 992.52),
+            new Vector3(-0.15, -0.9, -0.42), 1.1, 16, scene);
+            light1.intensity = 0.5;
             
             const light2: DirectionalLight = new DirectionalLight("light3", new Vector3(-1,-2,-1), scene)
-            light2.direction = new Vector3(0.76, -0.49, -0.43);
+            light2.direction = new Vector3(0.72, -0.21, -0.67);
+            light2.intensity = 0.7
+
 
             SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
              const room = getMeshes[0];
              room.scaling = new Vector3(1.23,1.28,1.08)
              const roomSurface = getMeshes[0].getChildMeshes()[0];
              roomSurface.material = createColorMaterial(scene).roomColor; 
-             const shadow = new CascadedShadowGenerator(1024, light2);
+
+             const shadow = new ShadowGenerator(2000, light1);
              shadow.getShadowMap().renderList.push(buildSectionTwo(scene).secondSection, buildStairs(scene).stairs );
-            //  shadow.useBlurExponentialShadowMap = true;
-            //  shadow.useKernelBlur = true;
-            //  shadow.blurKernel = 84;
+             
+             
+            //  const shadow2 = new ShadowGenerator(2000, light1);
+            //  shadow2.getShadowMap().renderList.push(buildSectionTwo(scene).secondSection, buildStairs(scene).stairs );
+
              roomSurface.receiveShadows = true
             });
 
