@@ -30,7 +30,7 @@ export const buildSectionTwo = (scene: Scene) => {
     
     const secondSection = Mesh.MergeMeshes([ secondPlane, quadrantPlane, rightPlane, leftPlane])
     secondSection.scaling = new Vector3(0.96,1,1)
-    secondSection.position = new Vector3(0,60,-117.848)
+    secondSection.position = new Vector3(0,60,-343.6)
 
     return {secondSection};
 }

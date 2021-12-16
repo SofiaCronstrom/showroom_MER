@@ -8,10 +8,12 @@ export const createColorMaterial = (scene: Scene) => {
     roomColor.ambientColor = new Color3(0.22,0.22,0.035)
     roomColor.specularColor = new Color3(0.973,0.973,0.973)
 
-   
+   const stairColor = new StandardMaterial('stairColor', scene);
+   stairColor.diffuseColor = new Color3(0.447, 0.443, 0.431);
     return {
             
-            roomColor
+            roomColor,
+            stairColor
             
     };
 }
