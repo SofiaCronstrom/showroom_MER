@@ -25,13 +25,13 @@ import { createColorMaterial } from "./materials/surfaceColor";
              scene.clearColor = new Color4(0.937,0.925,0.925);
              scene.ambientColor = new Color3(0.980, 0.976, 0.901);
         
-            const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
+            // const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
            
-            // const camera = new FreeCamera(
-            //     "camera1",
-            //     new Vector3(1, 4, 0),
-            //     scene
-            // );
+            const camera = new FreeCamera(
+                "camera1",
+                new Vector3(1, 4, 0),
+                scene
+            );
             camera.attachControl(canvas, true);
 
             const light1 = new PointLight("spot02", new Vector3(476.92, 1167.96, 1329.6),
@@ -45,12 +45,15 @@ import { createColorMaterial } from "./materials/surfaceColor";
 
             SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
              const room = getMeshes[0];
-             room.scaling = new Vector3(1.23,1.28,1.38)
+             room.scaling = new Vector3(1.5,1.28,1.38)
              const roomSurface = getMeshes[0].getChildMeshes()[0];
              roomSurface.material = createColorMaterial(scene).roomColor; 
 
              const shadow = new ShadowGenerator(2000, light1);
-             shadow.getShadowMap().renderList.push(buildSectionTwo(scene).secondSection, buildStairs(scene).stairs );
+             shadow.getShadowMap().renderList.push(
+                 buildSectionTwo(scene).secondSection, 
+                 buildStairs(scene).stairs
+               );
              
              
             //  const shadow2 = new ShadowGenerator(2000, light1);
@@ -61,9 +64,8 @@ import { createColorMaterial } from "./materials/surfaceColor";
 
            
 
-            //buildRoof(scene);
-            buildSectionTwo(scene);
-            buildStairs(scene);
+            buildRoof(scene);
+           
             
             return scene;
         }     

@@ -5,29 +5,29 @@ export const buildStairs = (scene: Scene) => {
 
 
     //stair meshes
-    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 15, sideOrientation: Mesh.DOUBLESIDE}, scene); 
-    stairPlane.position =  new Vector3 (-300, 139.5, -510);
+    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 40, sideOrientation: Mesh.DOUBLESIDE}, scene); 
+    stairPlane.position =  new Vector3 (-300, 130, -525);
     stairPlane.material = createColorMaterial(scene).stairColor;
 
-    const stairInstance: Mesh = MeshBuilder.CreatePlane('stair1', {width: 300, height: 20, sideOrientation: Mesh.DOUBLESIDE}, scene); 
+    const stairInstance: Mesh = MeshBuilder.CreatePlane('stair1', {width: 300, height: 50, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     stairInstance.rotation = new Vector3(Math.PI/2, 0, 0);
-    stairInstance.position = new Vector3 (-300, 132, -500);
+    stairInstance.position = new Vector3 (-300, 110, -500);
     
 
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
-    stairs.position = new Vector3(0,60,-335.53)
+    stairs.position = new Vector3(0,197.25,-140)
 
     //Position stair meshes
     let stairsArray = [];
-    stairsArray.push([1, 0, 45, -315.53]);
-    stairsArray.push([1, 0, 30, -295.53]);
-    stairsArray.push([1, 0, 15, -275.53]);
-    stairsArray.push([1, 0, 0, -255.53]);
-    stairsArray.push([1, 0, -15, -235.53]);
-    stairsArray.push([1, 0, -30, -215.53]);
-    stairsArray.push([1, 0, -45, -195.53]);
-    stairsArray.push([1, 0, -60, -175.53]);
-    stairsArray.push([1, 0, -75, -155.53]);
+    stairsArray.push([1, 0, 157.85, -90]);
+    stairsArray.push([1, 0, 117.75, -40]);
+    stairsArray.push([1, 0, 78.15, 0]);
+    stairsArray.push([1, 0, 38.25, 40]);
+    stairsArray.push([1, 0, -0.38, 90]);
+    stairsArray.push([1, 0, -39.88, 140]);
+    stairsArray.push([1, 0, -79.56, 190]);
+    //stairsArray.push([1, 0, -119.78, 200]);
+    //stairsArray.push([1, 0, -158.94, 240]);
     let stepsArray = []
 
     for (let i in stairsArray){
@@ -40,6 +40,6 @@ export const buildStairs = (scene: Scene) => {
         
     }
     
-    return {stairs};
+    return {stairs, stairsArray};
 }
 
