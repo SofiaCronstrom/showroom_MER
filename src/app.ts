@@ -1,12 +1,10 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, UniversalCamera, Color3, Color4, Vector3, HemisphericLight, Mesh, MeshBuilder, ArcRotateCamera, WebXRDefaultExperience, WebXRExperienceHelper, FreeCamera, PolygonMeshBuilder, DirectionalLight, ShadowGenerator, SceneLoader, StandardMaterial, CascadedShadowGenerator, SpotLight, PointLight} from "@babylonjs/core";
-import {buildSectionTwo} from "./meshes/sectionTwo"; 
-import { buildStairs } from "./meshes/stair";
+import { Engine, Scene, Color3, Color4, Vector3, FreeCamera, DirectionalLight, SSAORenderingPipeline, ArcRotateCamera} from "@babylonjs/core";
 import { buildRoof } from "./meshes/roof";
-import { createColorMaterial } from "./materials/surfaceColor";
-//import { buildWalls } from "./meshes/walls";
+import {buildRoom} from "./meshes/room";
+
 
 
         const canvas = document.createElement('canvas');
@@ -25,46 +23,36 @@ import { createColorMaterial } from "./materials/surfaceColor";
              scene.clearColor = new Color4(0.937,0.925,0.925);
              scene.ambientColor = new Color3(0.980, 0.976, 0.901);
         
-            // const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
+            const camera: ArcRotateCamera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 90, Vector3.Zero(), scene);
            
-            const camera = new FreeCamera(
-                "camera1",
-                new Vector3(1, 4, 0),
-                scene
-            );
+            // const camera = new FreeCamera(
+            //     "camera1",
+            //     new Vector3(1, 4, 0),
+            //     scene
+            // );
             camera.attachControl(canvas, true);
 
-            const light1 = new PointLight("spot02", new Vector3(476.92, 1167.96, 1329.6),
-             scene);
-            light1.intensity = 0.5;
+           
             
             const light2: DirectionalLight = new DirectionalLight("light3", new Vector3(-1,-2,-1), scene)
             light2.direction = new Vector3(0.72, -0.21, -0.67);
             light2.intensity = 0.7
 
+            // const ssaoRatio = {
+            //     ssaoRatio: 0.5, // Ratio of the SSAO post-process, in a lower resolution
+            //     combineRatio: 1.0 // Ratio of the combine post-process (combines the SSAO and the scene)
+            // };
+            // const ssao = new SSAORenderingPipeline("ssao", scene, ssaoRatio);
+            // ssao.fallOff = 0.000001;
+            // ssao.area = 0.5;
+            // ssao.radius = 0.0001;
+            // ssao.totalStrength = 1.0;
+            // ssao.base = 0.5;
 
-            SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
-             const room = getMeshes[0];
-             room.scaling = new Vector3(1.5,1.28,1.38)
-             const roomSurface = getMeshes[0].getChildMeshes()[0];
-             roomSurface.material = createColorMaterial(scene).roomColor; 
+            // scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("ssao", camera);
 
-             const shadow = new ShadowGenerator(2000, light1);
-             shadow.getShadowMap().renderList.push(
-                 buildSectionTwo(scene).secondSection, 
-                 buildStairs(scene).stairs
-               );
-             
-             
-            //  const shadow2 = new ShadowGenerator(2000, light1);
-            //  shadow2.getShadowMap().renderList.push(buildSectionTwo(scene).secondSection, buildStairs(scene).stairs );
-
-             roomSurface.receiveShadows = true
-            });
-
-           
-
-            buildRoof(scene);
+            buildRoom(scene);
+            //buildRoof(scene);
            
             
             return scene;

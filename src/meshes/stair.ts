@@ -5,7 +5,7 @@ export const buildStairs = (scene: Scene) => {
 
 
     //stair meshes
-    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 40, sideOrientation: Mesh.DOUBLESIDE}, scene); 
+    const stairPlane: Mesh = MeshBuilder.CreatePlane('stair1', {width: 200, height: 30, sideOrientation: Mesh.DOUBLESIDE}, scene); 
     stairPlane.position =  new Vector3 (-300, 130, -525);
     stairPlane.material = createColorMaterial(scene).stairColor;
 

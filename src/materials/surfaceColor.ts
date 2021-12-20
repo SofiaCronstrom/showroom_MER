@@ -10,10 +10,14 @@ export const createColorMaterial = (scene: Scene) => {
 
    const stairColor = new StandardMaterial('stairColor', scene);
    stairColor.diffuseColor = new Color3(0.447, 0.443, 0.431);
+
+   const windowColor = new StandardMaterial('stairColor', scene);
+   windowColor.emissiveColor = new Color3(1, 1, 1);
     return {
             
             roomColor,
-            stairColor
+            stairColor,
+            windowColor
             
     };
 }
