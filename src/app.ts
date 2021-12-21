@@ -31,25 +31,13 @@ import {buildRoom} from "./meshes/room";
             //     scene
             // );
             camera.attachControl(canvas, true);
-
+            const ssao = new SSAORenderingPipeline('ssaopipeline', scene, 0.75, [camera]);
            
             
             const light2: DirectionalLight = new DirectionalLight("light3", new Vector3(-1,-2,-1), scene)
             light2.direction = new Vector3(0.72, -0.21, -0.67);
             light2.intensity = 0.7
 
-            // const ssaoRatio = {
-            //     ssaoRatio: 0.5, // Ratio of the SSAO post-process, in a lower resolution
-            //     combineRatio: 1.0 // Ratio of the combine post-process (combines the SSAO and the scene)
-            // };
-            // const ssao = new SSAORenderingPipeline("ssao", scene, ssaoRatio);
-            // ssao.fallOff = 0.000001;
-            // ssao.area = 0.5;
-            // ssao.radius = 0.0001;
-            // ssao.totalStrength = 1.0;
-            // ssao.base = 0.5;
-
-            // scene.postProcessRenderPipelineManager.attachCamerasToRenderPipeline("ssao", camera);
 
             buildRoom(scene);
             //buildRoof(scene);
