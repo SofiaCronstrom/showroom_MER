@@ -31,7 +31,7 @@ import {buildRoom} from "./meshes/room";
             //     scene
             // );
             camera.attachControl(canvas, true);
-            const ssao = new SSAORenderingPipeline('ssaopipeline', scene, 0.75, [camera]);
+            //const ssao = new SSAORenderingPipeline('ssaopipeline', scene, 0.75, [camera]);
            
             
             const light2: DirectionalLight = new DirectionalLight("light3", new Vector3(-1,-2,-1), scene)
@@ -40,7 +40,7 @@ import {buildRoom} from "./meshes/room";
 
 
             buildRoom(scene);
-            //buildRoof(scene);
+            buildRoof(scene);
            
             
             return scene;
