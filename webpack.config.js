@@ -24,9 +24,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.tsx?$/, 
                 use: "ts-loader",
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.(gltf)$/,
+                use: [
+                    {
+                        loaders: "gltf-webpack-loader"
+                },
+                
+                ],
             },
         ],
     },

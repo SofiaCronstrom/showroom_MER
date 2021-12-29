@@ -28,6 +28,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
-    "babylonjs-loaders": "^4.2.0"
+    "babylonjs-loaders": "^4.2.0",
+    "gltf-webpack-loader": "^1.0.6"
   }
 }
