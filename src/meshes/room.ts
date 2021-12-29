@@ -10,8 +10,8 @@ export const buildRoom = (scene: Scene) => {
     const light1 = new PointLight("spot02", new Vector3(476.92, 1167.96, 1329.6),
     scene);
    light1.intensity = 0.5;
-
-    SceneLoader.ImportMesh("", "./assets/", "museum-walls.gltf", scene, (getMeshes) => {
+/*"./assets/", "museum-walls.gltf"*/
+    SceneLoader.ImportMesh("","https://drive.google.com/file/", "", scene, (getMeshes) => {
     const room = getMeshes[0];
     room.scaling = new Vector3(1.5,1.28,1.38)
     const roomSurface = getMeshes[0].getChildMeshes()[0];
