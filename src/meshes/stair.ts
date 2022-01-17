@@ -1,4 +1,4 @@
-import { Scene, Vector3, MeshBuilder, Mesh, } from "@babylonjs/core";
+import { Scene, Vector3, MeshBuilder, Mesh } from "@babylonjs/core";
 import { createColorMaterial } from "../materials/surfaceColor";
 
 export const buildStairs = (scene: Scene) => {
@@ -15,7 +15,7 @@ export const buildStairs = (scene: Scene) => {
     
 
     const stairs = Mesh.MergeMeshes([stairPlane, stairInstance]);
-    stairs.position = new Vector3(0,197.25,-140)
+   
 
     //Position stair meshes
     let stairsArray = [];
@@ -40,6 +40,6 @@ export const buildStairs = (scene: Scene) => {
         
     }
     
-    return {stairs, stairsArray};
+   
 }
 

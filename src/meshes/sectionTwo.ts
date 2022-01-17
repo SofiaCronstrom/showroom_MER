@@ -32,5 +32,5 @@ export const buildSectionTwo = (scene: Scene) => {
     secondSection.scaling = new Vector3(1.16,1,1.27)
     secondSection.position = new Vector3(0,200.51,-84)
 
-    return {secondSection};
+    
 }
