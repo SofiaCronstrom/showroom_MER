@@ -19,13 +19,13 @@ export const buildStairs = (scene: Scene) => {
 
     //Position stair meshes
     let stairsArray = [];
-    stairsArray.push([1, 0, 157.85, -90]);
-    stairsArray.push([1, 0, 117.75, -40]);
-    stairsArray.push([1, 0, 78.15, 0]);
-    stairsArray.push([1, 0, 38.25, 40]);
-    stairsArray.push([1, 0, -0.38, 90]);
-    stairsArray.push([1, 0, -39.88, 140]);
-    stairsArray.push([1, 0, -79.56, 190]);
+    stairsArray.push([1, 0, 204.828, -90]);
+    stairsArray.push([1, 0, 169.521, -40]);
+    stairsArray.push([1, 0, 134.2, 0]);
+    stairsArray.push([1, 0, 98.9, 40]);
+    stairsArray.push([1, 0, 63.6, 90]);
+    stairsArray.push([1, 0, 28.3, 140]);
+    stairsArray.push([1, 0, -7, 190]);
     //stairsArray.push([1, 0, -119.78, 200]);
     //stairsArray.push([1, 0, -158.94, 240]);
     let stepsArray = []

@@ -52,27 +52,30 @@ import { buildStairs } from "./meshes/stair";
             return scene;
         }     
           
-            
-
+        
+         
 
             //DebugLayer
-            window.addEventListener("keydown", (ev) => {
+            // window.addEventListener("keydown", (ev) => {
             
-                if (ev.shiftKey && ev.ctrlKey && ev.altKey){
-                    if (scene.debugLayer.isVisible()) {
-                        scene.debugLayer.hide();
+            //     if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.key === "a"){
+            //         if (scene.debugLayer.isVisible()) {
+            //             scene.debugLayer.hide();
                        
-                    } else {
-                        scene.debugLayer.show();
+            //         } else {
+            //             scene.debugLayer.show();
                         
-                    }
-                }
-            });
+            //         }
+            //     }
+            // });
        
             //call createScene
             const scene: Scene = createScene();
 
-
+            scene.debugLayer.show({
+                embedMode: true,
+              });
+              
             //Render engine, resize window on render
             engine.runRenderLoop(() => {
                 scene.render();
