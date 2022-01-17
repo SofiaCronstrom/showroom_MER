@@ -1,10 +1,11 @@
 import "@babylonjs/core/Debug/debugLayer";
 import "@babylonjs/inspector";
 import "@babylonjs/loaders/glTF";
-import { Engine, Scene, Color3, Color4, Vector3, FreeCamera, DirectionalLight, SSAORenderingPipeline, ArcRotateCamera} from "@babylonjs/core";
+import { Engine, Scene, Color3, Color4, Vector3, FreeCamera, DirectionalLight, SSAORenderingPipeline, ArcRotateCamera, ShadowGenerator} from "@babylonjs/core";
 import { buildRoof } from "./meshes/roof";
 import {buildRoom} from "./meshes/room";
-
+import {buildSectionTwo} from "./meshes/sectionTwo"; 
+import { buildStairs } from "./meshes/stair";
 
 
         const canvas = document.createElement('canvas');
@@ -41,7 +42,12 @@ import {buildRoom} from "./meshes/room";
 
             buildRoom(scene);
             buildRoof(scene);
-           
+
+            // const shadow = new ShadowGenerator(2000, light2);
+            // shadow.getShadowMap().renderList.push(
+            buildSectionTwo(scene),
+            buildStairs(scene)
+            
             
             return scene;
         }     
@@ -52,7 +58,7 @@ import {buildRoom} from "./meshes/room";
             //DebugLayer
             window.addEventListener("keydown", (ev) => {
             
-                if (ev.shiftKey && ev.ctrlKey && ev.altKey && ev.code === 'KeyA'){
+                if (ev.shiftKey && ev.ctrlKey && ev.altKey){
                     if (scene.debugLayer.isVisible()) {
                         scene.debugLayer.hide();
                        
