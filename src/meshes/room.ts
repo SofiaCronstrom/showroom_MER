@@ -11,7 +11,7 @@ export const buildRoom = (scene: Scene) => {
     scene);
    light1.intensity = 0.5;
 /*"./assets/", "museum-walls.gltf"*/
-    SceneLoader.ImportMesh("","../assets/", "museum-walls.gltf", scene, (getMeshes) => {
+    SceneLoader.ImportMesh("","../assets/", "museum-walls.glb", scene, (getMeshes) => {
     const room = getMeshes[0];
     room.scaling = new Vector3(1.5,1.28,1.38)
     const roomSurface = getMeshes[0].getChildMeshes()[0];
