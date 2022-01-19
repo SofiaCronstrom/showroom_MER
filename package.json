@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/SofiaCronstrom/showroom_MER/issues"
   },
-  "homepage": "https://github.com/SofiaCronstrom/showroom_MER#readme",
+  "homepage": "https://github.com/SofiaCronstrom/showroom_MER",
   "devDependencies": {
     "@babylonjs/core": "^4.2.0",
     "@babylonjs/inspector": "^4.2.0",
