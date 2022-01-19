@@ -4,7 +4,7 @@ import { createColorMaterial } from "../materials/surfaceColor";
 
 export const buildRoof =  (scene: Scene) => {
 
-    SceneLoader.ImportMesh('','../assets/', 'museum-roof.glb', scene, (getMeshes) => {
+    SceneLoader.ImportMesh('Roof001','./assets/', 'museum-roof.glb', scene, (getMeshes) => {
     const roof = getMeshes[0];
     roof.scaling = new Vector3(1.5,1.28,1.38)
     const roof1 = getMeshes[0].getChildMeshes()[0];
